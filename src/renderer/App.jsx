@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Card, Typography, Space, Divider } from 'antd';
+import { Layout, Card, Typography, Space, Divider, Input, Tooltip } from 'antd';
 import { AudioOutlined, VideoCameraOutlined,PictureFilled} from '@ant-design/icons';
 import AudioConverter from './components/AudioConverter';
 import VideoConverter from './components/VideoConverter';
@@ -11,17 +11,32 @@ const { Title } = Typography;
 
 function App() {
   const [activeTab, setActiveTab] = useState('audio');
+  const [bgColor, setBgColor] = useState('#181c2a');
+
+  // 设置背景色变量
+  const handleBgColorChange = (e) => {
+    setBgColor(e.target.value);
+    document.documentElement.style.setProperty('--app-bg', e.target.value);
+  };
 
   return (
     <Layout className="app-layout">
       <Header className="app-header">
-        <div className="header-content">
+        <div className="header-content" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Space align="center">
             <AudioOutlined className="header-icon" />
             <Title level={3} style={{ color: 'white', margin: 0 }}>
               音视频转换器
             </Title>
           </Space>
+          <Tooltip title="自定义背景色">
+            <Input
+              type="color"
+              value={bgColor}
+              onChange={handleBgColorChange}
+              style={{ width: 40, height: 32, border: 'none', background: 'none', cursor: 'pointer', marginLeft: 16 }}
+            />
+          </Tooltip>
         </div>
       </Header>
 
