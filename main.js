@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs-extra');
 const ffmpeg = require('fluent-ffmpeg');
+const sharp = require('sharp');
 
 // 配置 FFmpeg 路径
 function setupFFmpeg() {
@@ -453,4 +454,17 @@ ipcMain.handle('generate-output-path', async (event, { inputPath, format }) => {
   const outputPath = path.join(dir, `${name}_converted.${format}`);
   
   return outputPath;
+});
+
+// 图片转换主逻辑
+ipcMain.handle('convert-image', async (event, { inputPath, outputPath, format }) => {
+  try {
+    let sharpFormat = format === 'jpg' ? 'jpeg' : format;
+    await sharp(inputPath)
+      .toFormat(sharpFormat)
+      .toFile(outputPath);
+    return { success: true };
+  } catch (err) {
+    return { success: false, error: err.message };
+  }
 }); 

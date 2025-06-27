@@ -17,6 +17,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
   // 视频转换
   convertVideo: (params) => ipcRenderer.invoke('convert-video', params),
   
+  // 图片转换
+  convertImage: (params) => ipcRenderer.invoke('convert-image', params),
+  
   // 监听转换进度
   onProgress: (callback) => {
     ipcRenderer.on('conversion-progress', (event, progress) => {
