@@ -458,6 +458,9 @@ ipcMain.handle('generate-output-path', async (event, { inputPath, format }) => {
 
 // 图片转换主逻辑
 ipcMain.handle('convert-image', async (event, { inputPath, outputPath, format }) => {
+  if (format === 'ico' || (inputPath && inputPath.toLowerCase().endsWith('.ico'))) {
+    return { success: false, error: '不支持 ico 作为输入格式' };
+  }
   try {
     let sharpFormat = format === 'jpg' ? 'jpeg' : format;
     await sharp(inputPath)

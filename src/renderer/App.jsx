@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Card, Typography, Space, Divider } from 'antd';
-import { AudioOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { AudioOutlined, VideoCameraOutlined,PictureFilled} from '@ant-design/icons';
 import AudioConverter from './components/AudioConverter';
 import VideoConverter from './components/VideoConverter';
+import ImageConverter from './components/ImageConverter';
 import './App.css';
 
 const { Header, Content, Footer } = Layout;
@@ -43,12 +44,19 @@ function App() {
                   <VideoCameraOutlined />
                   视频转换
                 </button>
+                <button
+                  className={`tab-button ${activeTab === 'image' ? 'active' : ''}`}
+                  onClick={() => setActiveTab('image')}
+                >
+                  <PictureFilled />
+                  Image转换
+                </button>
               </div>
 
               <Divider />
 
               <div className="tab-content">
-                {activeTab === 'audio' ? <AudioConverter /> : <VideoConverter />}
+                {activeTab === 'audio' ? <AudioConverter /> :activeTab === 'video'?  <VideoConverter />: <ImageConverter />}
               </div>
             </div>
           </Card>

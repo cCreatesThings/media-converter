@@ -15,7 +15,6 @@ const imageFormats = [
   { value: 'tiff', label: 'TIFF (.tiff)' },
   { value: 'gif', label: 'GIF (.gif)' },
   { value: 'bmp', label: 'BMP (.bmp)' },
-  { value: 'ico', label: 'ICO (.ico)' },
   { value: 'heif', label: 'HEIF (.heif)' },
 ];
 
@@ -35,6 +34,10 @@ const ImageConverter = () => {
   const handleFileSelect = async () => {
     try {
       const file = await window.electronAPI?.selectFile('image');
+      if (file && file.toLowerCase().endsWith('.ico')) {
+        message.error('不支持 ico 作为输入格式');
+        return;
+      }
       if (file) {
         setSelectedFile(file);
         message.success('文件选择成功');
@@ -45,16 +48,20 @@ const ImageConverter = () => {
   };
 
   const handleDragUpload = async (file) => {
-    const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.avif', '.tiff', '.gif', '.bmp', '.ico', '.heif'];
+    const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.avif', '.tiff', '.gif', '.bmp', '.heif'];
     let isValidImage = false;
     if (file.name) {
       const extension = file.name.toLowerCase().substring(file.name.lastIndexOf('.'));
+      if (extension === '.ico') {
+        message.error('不支持 ico 作为输入格式');
+        return false;
+      }
       if (imageExtensions.includes(extension)) {
         isValidImage = true;
       }
     }
     if (!isValidImage) {
-      message.error('请上传图片文件！支持格式：JPG、PNG、WEBP、AVIF、TIFF、GIF、BMP、ICO、HEIF');
+      message.error('请上传图片文件！支持格式：JPG、PNG、WEBP、AVIF、TIFF、GIF、BMP、HEIF');
       return false;
     }
     let filePath = '';
@@ -148,14 +155,14 @@ const ImageConverter = () => {
                 multiple={false}
                 beforeUpload={handleDragUpload}
                 showUploadList={false}
-                accept=".jpg,.jpeg,.png,.webp,.avif,.tiff,.gif,.bmp,.ico,.heif,image/*"
+                accept=".jpg,.jpeg,.png,.webp,.avif,.tiff,.gif,.bmp,.heif,image/*"
               >
                 <p className="ant-upload-drag-icon">
                   <InboxOutlined />
                 </p>
                 <p className="ant-upload-text">点击或拖拽图片文件到此区域上传</p>
                 <p className="ant-upload-hint">
-                  支持 JPG、PNG、WEBP、AVIF、TIFF、GIF、BMP、ICO、HEIF 等格式
+                  支持 JPG、PNG、WEBP、AVIF、TIFF、GIF、BMP、HEIF 等格式
                 </p>
               </Dragger>
               {selectedFile && (
