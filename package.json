@@ -1,0 +1,84 @@
+{
+  "name": "seniorL-video-media-conversion-tool",
+  "version": "1.0.0",
+  "description": "A powerful audio conversion desktop application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "npm run build:renderer && npm run dev:electron",
+    "dev:renderer": "vite",
+    "dev:electron": "cross-env NODE_ENV=development electron .",
+    "build:renderer": "vite build",
+    "postinstall": "node scripts/download-ffmpeg.js",
+    "build": "npm run build:renderer && electron-builder",
+    "dist": "npm run build"
+  },
+  "keywords": [
+    "audio",
+    "converter",
+    "electron",
+    "desktop"
+  ],
+  "author": "Senior L",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.6.4",
+    "vite": "^4.4.0",
+    "wait-on": "^7.2.0"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.0.0",
+    "antd": "^5.0.0",
+    "axios": "^1.6.0",
+    "extract-zip": "^2.0.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs-extra": "^11.1.1",
+    "path": "^0.12.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "build": {
+    "appId": "com.audiotransformer.app",
+    "productName": "media-converter",
+    "asar": false,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "ffmpeg/bin/ffmpeg",
+      "ffmpeg/bin/ffmpeg.exe",
+      "**/*",
+      "!node_modules/.cache/**/*",
+      "!scripts/**/*",
+      "!src/**/*",
+      "!vite.config.js",
+      "dist-renderer/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "ffmpeg",
+        "to": "ffmpeg",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.music",
+      "target": "dmg",
+      "icon": "icon/app_icon_mac.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icon/app_icon_win.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "icon/app_icon_linux_512x512.png"
+    }
+  }
+}

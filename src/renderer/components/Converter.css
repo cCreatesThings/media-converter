@@ -1,0 +1,73 @@
+.audio-converter,
+.video-converter {
+  width: 100%;
+}
+
+.form-card {
+  margin-bottom: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-card:last-child {
+  margin-bottom: 0;
+}
+
+.form-card .ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+}
+
+.form-card .ant-card-body {
+  padding: 24px;
+}
+
+.ant-form-item-label > label {
+  font-weight: 500;
+  color: #262626;
+}
+
+.ant-select-selector {
+  border-radius: 8px !important;
+}
+
+.ant-input {
+  border-radius: 8px;
+}
+
+.ant-radio-group {
+  width: 100%;
+}
+
+.ant-radio-wrapper {
+  margin-bottom: 8px;
+}
+
+.ant-progress-text {
+  font-weight: 500;
+}
+
+.ant-message {
+  z-index: 9999;
+}
+
+.ant-divider-inner-text {
+  font-weight: 500;
+  color: #1890ff;
+}
+
+.ant-space-vertical {
+  width: 100%;
+}
+
+.ant-row {
+  margin-bottom: 0;
+}
+
+.ant-col {
+  margin-bottom: 16px;
+}
+
+.ant-col:last-child {
+  margin-bottom: 0;
+} 
