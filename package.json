@@ -52,7 +52,7 @@
   "build": {
     "appId": "com.audiotransformer.app",
     "productName": "media-converter",
-    "asar": true,
+    "asar": false,
     "asarUnpack": [
       "ffmpeg/**/*"
     ],
