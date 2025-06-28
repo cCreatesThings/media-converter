@@ -1,3 +1,7 @@
+## 🌐 语言选择
+- [中文 (Chinese)](README.md)
+- [English](README_EN.md) 
+
 # 🎵🎬 音视频-图片转换器
 
 一个基于 Electron + React + Ant Design 的现代化桌面音视频转换应用。
@@ -293,7 +297,4 @@ audio-transfrom/
 > npm install
 > ``` 
 
-## 🌐 语言选择
 
-- [中文 (Chinese)](README.md)
-- [English](README_EN.md) 

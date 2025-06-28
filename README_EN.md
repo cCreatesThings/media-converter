@@ -1,4 +1,4 @@
-
+## 🌐 language choice
 - [中文 (Chinese)](README.md)
 - [English](README_EN.md) 
 
@@ -295,6 +295,4 @@ audio-transfrom/
 > rm -rf node_modules package-lock.json
 > npm install
 > ```
-
----
 
