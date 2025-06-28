@@ -33,6 +33,7 @@
     "cross-env": "^7.0.3",
     "electron": "^28.0.0",
     "electron-builder": "^24.6.4",
+    "electron-rebuild": "^3.2.9",
     "vite": "^4.4.0",
     "wait-on": "^7.2.0"
   },
@@ -87,11 +88,17 @@
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "icon": "icon/app_icon_win.ico",
       "artifactName": "media-converter-${version}.exe"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
     },
     "linux": {
       "target": "AppImage",
