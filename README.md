@@ -4,9 +4,11 @@
 
 # 🎵🎬 音视频-图片转换器
 
-一个基于 Electron + React + Ant Design 的现代化桌面音视频转换应用。
-## 🍎 Mac 安装包下载
-[👉 下载 media-converter-1.0.0.dmg for macOS](https://github.com/cCreatesThings/media-converter/releases/download/v1.0.0/media-converter-1.0.0.dmg)
+## 📦 下载最新版安装包（v1.0.0）
+- 🪟 [Windows 版下载](https://github.com/cCreatesThings/media-converter/releases/download/v1.0.0/media-converter-windows-latest.zip)
+- 🍎 [macOS Intel (x64) 版下载](https://github.com/cCreatesThings/media-converter/releases/download/v1.0.0/media-converter-mac-x64-latest.zip)
+- 🍏 [macOS Apple Silicon (arm64) 版下载](https://github.com/cCreatesThings/media-converter/releases/download/v1.0.0/media-converter-mac-arm64-latest.zip)
+- 🐧 [Linux 版下载](https://github.com/cCreatesThings/media-converter/releases/download/v1.0.0/media-converter-linux-latest.zip)
 
 ## ✨ 特性
 
