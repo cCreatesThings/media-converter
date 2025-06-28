@@ -1,11 +1,17 @@
-# 🎵🎬 音视频转换器
+- [中文 (Chinese)](README.md)
+- [English](README_EN.md) 
+
+# 🎵🎬 音视频-图片转换器
 
 一个基于 Electron + React + Ant Design 的现代化桌面音视频转换应用。
+## 🍎 Mac 安装包下载
+[👉 下载 media-converter-1.0.0.dmg for macOS](https://github.com/cCreatesThings/media-converter/releases/download/v1.0.0/media-converter-1.0.0.dmg)
 
 ## ✨ 特性
 
 - 🎵 **音频转换**: 支持 MP3, WAV, FLAC, AAC, OGG, M4A, WMA, ALAC, OPUS, AMR 等格式
 - 🎬 **视频转换**: 支持 MP4, AVI, MKV, MOV, WMV, FLV, WebM, M4V, 3GP, TS 等格式
+- 🖼️ **图片转换**: 支持多种主流图片格式互转（JPEG, PNG, WEBP, AVIF, TIFF, GIF, BMP, HEIF）
 - 🎨 **现代化界面**: 基于 React + Ant Design 的美观用户界面
 - ⚡ **高性能**: 使用 FFmpeg 进行快速转换
 - 📦 **开箱即用**: 内置 FFmpeg 二进制文件，无需额外安装
@@ -36,12 +42,13 @@ npm run dist
 ## 📁 项目结构
 
 ```
-audio-transfrom/
+media-converter/
 ├── src/
 │   └── renderer/           # React 前端代码
 │       ├── components/     # React 组件
 │       │   ├── AudioConverter.jsx
 │       │   ├── VideoConverter.jsx
+|       |   ├── ImageConverter.jsx
 │       │   └── Converter.css
 │       ├── App.jsx         # 主应用组件
 │       ├── App.css         # 应用样式
@@ -87,6 +94,7 @@ audio-transfrom/
 应用会自动下载并打包 FFmpeg 二进制文件，支持：
 - **Windows**: NSIS 安装程序 (.exe)
 - **macOS**: DMG 镜像文件 (.dmg)
+- **Linux**: AppImage 格式
 
 ## 🔧 开发说明
 
@@ -287,3 +295,7 @@ audio-transfrom/
 > rm -rf node_modules package-lock.json
 > npm install
 > ``` 
+
+---
+
+
