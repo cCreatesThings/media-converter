@@ -1,4 +1,4 @@
-# 🎵🎬 音视频转换器
+# 🎵🎬 音视频-图片转换器
 
 一个基于 Electron + React + Ant Design 的现代化桌面音视频转换应用。
 
@@ -6,6 +6,7 @@
 
 - 🎵 **音频转换**: 支持 MP3, WAV, FLAC, AAC, OGG, M4A, WMA, ALAC, OPUS, AMR 等格式
 - 🎬 **视频转换**: 支持 MP4, AVI, MKV, MOV, WMV, FLV, WebM, M4V, 3GP, TS 等格式
+- 🖼️ **图片转换**: 支持多种主流图片格式互转（JPEG, PNG, WEBP, AVIF, TIFF, GIF, BMP, HEIF）
 - 🎨 **现代化界面**: 基于 React + Ant Design 的美观用户界面
 - ⚡ **高性能**: 使用 FFmpeg 进行快速转换
 - 📦 **开箱即用**: 内置 FFmpeg 二进制文件，无需额外安装
