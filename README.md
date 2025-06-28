@@ -36,12 +36,13 @@ npm run dist
 ## 📁 项目结构
 
 ```
-audio-transfrom/
+media-converter/
 ├── src/
 │   └── renderer/           # React 前端代码
 │       ├── components/     # React 组件
 │       │   ├── AudioConverter.jsx
 │       │   ├── VideoConverter.jsx
+|       |   ├── ImageConverter.jsx
 │       │   └── Converter.css
 │       ├── App.jsx         # 主应用组件
 │       ├── App.css         # 应用样式
