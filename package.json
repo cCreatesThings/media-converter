@@ -55,6 +55,7 @@
     "asarUnpack": [
       "ffmpeg/**/*"
     ],
+    "publish": null,
     "directories": {
       "output": "dist"
     },
