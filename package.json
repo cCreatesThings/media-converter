@@ -80,12 +80,7 @@
     ],
     "mac": {
       "category": "public.app-category.music",
-      "target": [
-        {
-          "target": "dmg",
-          "arch": ["x64", "arm64"]
-        }
-      ],
+      "target": "dmg",
       "icon": "icon/app_icon_mac.icns"
     },
     "win": {
