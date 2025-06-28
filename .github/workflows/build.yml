@@ -44,13 +44,13 @@ jobs:
         CSC_IDENTITY_AUTO_DISCOVERY: false
       run: npm run build:mac -- --arm64
 
-    - name: Upload macOS arm64 artifact
+    - name: Install electron-rebuild
       if: matrix.os == 'macos-latest'
-      uses: actions/upload-artifact@v4
-      with:
-        name: media-converter-mac-arm64
-        path: dist/*.dmg
-        retention-days: 30
+      run: npm install --save-dev electron-rebuild
+
+    - name: Rebuild sharp for Electron x64
+      if: matrix.os == 'macos-latest'
+      run: npx electron-rebuild -f -w sharp --arch=x64
 
     - name: Build and package for macOS x64
       if: matrix.os == 'macos-latest'
