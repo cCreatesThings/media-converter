@@ -32,15 +32,17 @@ jobs:
     - name: Build renderer
       run: npm run build:renderer
       
-    - name: Build and package for ${{ matrix.os }}
-      run: |
-        if [ "${{ matrix.os }}" = "windows-latest" ]; then
-          npm run build:win
-        elif [ "${{ matrix.os }}" = "macos-latest" ]; then
-          npm run build:mac
-        else
-          npm run build:linux
-        fi
+    - name: Build and package for Windows
+      if: matrix.os == 'windows-latest'
+      run: npm run build:win
+      
+    - name: Build and package for macOS
+      if: matrix.os == 'macos-latest'
+      run: npm run build:mac
+      
+    - name: Build and package for Linux
+      if: matrix.os == 'ubuntu-latest'
+      run: npm run build:linux
       
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
